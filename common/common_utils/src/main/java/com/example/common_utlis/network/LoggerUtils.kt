@@ -1,0 +1,36 @@
+package com.example.common_utlis.network
+
+import android.annotation.SuppressLint
+import android.util.Log
+import com.example.common_utlis.Constants.SHOW_CONSOLE_LOGS
+
+@SuppressLint("LogNotTimber")
+object LoggerUtils {
+
+    fun debug(tag: String?, message: String) {
+        if (SHOW_CONSOLE_LOGS) {
+            Log.d(tag, message)
+        }
+    }
+
+    fun error(tag: String?, message: String) {
+        error(tag, message, null)
+    }
+
+    fun error(tag: String?, message: String, th: Throwable?) {
+        if (SHOW_CONSOLE_LOGS) {
+            Log.e(tag, message, th)
+        }
+    }
+
+    fun verbose(tag: String?, message: String) {
+        if (SHOW_CONSOLE_LOGS) {
+            Log.v(tag, message)
+        }
+    }
+    fun info(tag: String?, message: String) {
+        if (SHOW_CONSOLE_LOGS) {
+            Log.i(tag, message)
+        }
+    }
+}

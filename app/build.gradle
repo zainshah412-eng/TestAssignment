@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.example.testassignment'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.testassignment"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    dataBinding {
+        enabled = true
+    }
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation project(":listing:listing_presentation")
+    implementation project(":listing:listing_domain")
+    implementation project(":listing:listing_data")
+    implementation project(":detail:detail_presentation")
+    implementation project(":common:common_utils")
+
+    implementation Deps.core
+    implementation Deps.appCompat
+    implementation Deps.androidMaterial
+    implementation Deps.constraintLayout
+    testImplementation TestImplementation.junit
+    androidTestImplementation AndroidTestImplementation.junit
+    androidTestImplementation AndroidTestImplementation.espresso
+    androidTestImplementation AndroidTestImplementation.hiltTest
+    implementation LottieAnimations.lottieAnimations
+
+    implementation DaggerHilt.hilt
+    kapt DaggerHilt.hiltAndroidCompiler
+    kapt DaggerHilt.hiltCompiler
+
+    implementation Room.room
+    kapt Room.roomCompiler
+
+}
