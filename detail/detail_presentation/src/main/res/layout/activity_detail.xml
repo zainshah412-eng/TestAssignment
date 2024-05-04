@@ -13,6 +13,7 @@
         android:layout_height="30dp"
         android:layout_margin="10dp"
         android:scaleType="centerCrop"
+        style="@style/customIconColorStyle"
         android:src="@drawable/baseline_refresh_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
